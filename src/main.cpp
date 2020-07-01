@@ -8,21 +8,21 @@
 #define MY_BAUD_RATE 9600
 
 // Settings
-#define BARO_CHILD 0
+#define BARO_CHILD_ID 0
 #define BARO_SENSOR_PIN A1
-#define SLEEP_TIME 10000
+#define SLEEP_TIME 20000 // 20s
 
-#define SKETCH_NAME "Pressure Sensor"
+#define SKETCH_NAME "Water Pressure Sensor"
 #define SKETCH_MAJOR_VER "0"
-#define SKETCH_MINOR_VER "4"
+#define SKETCH_MINOR_VER "5"
 
 #include <MySensors.h>
 
-MyMessage pressureMsg(BARO_CHILD, V_PRESSURE);
+MyMessage pressureMsg(BARO_CHILD_ID, V_PRESSURE);
 
 void presentation() {
 	sendSketchInfo(SKETCH_NAME, SKETCH_MAJOR_VER "." SKETCH_MINOR_VER);
-	present(BARO_CHILD, S_BARO, "Water Pressure");
+	present(BARO_CHILD_ID, S_BARO, "Water Pressure");
 }
 
 void setup() {
